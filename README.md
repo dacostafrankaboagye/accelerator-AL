@@ -37,3 +37,6 @@ E. Java Memory Model (JMM)
 - Task
     -  #1: Parallel Fibonacci Calculation with Fork/Join Framework
         - F(n) = F(n-1) + F(n-2), where F(0) = 0 and F(1) = 1
+        - comoutung the Fibo seq for large numbers can be computationally expensive
+        - We can parallelize the task braking it down into smaller subproblems - with the help of the ForkJoin
+        

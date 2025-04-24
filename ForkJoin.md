@@ -1,0 +1,5 @@
+- ForkJoinPool = executor service used to run the ForkJoinTask
+- ForkJoinTask = Abstract class - represents a task that can be executed in a ForkJoinPool
+	- Implementations
+		- RecursiveTask<V>: return value
+		- RecursiveAction: no return value

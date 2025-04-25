@@ -36,7 +36,60 @@ E. Java Memory Model (JMM)
 
 - Task
     -  #1: Parallel Fibonacci Calculation with Fork/Join Framework
-        - F(n) = F(n-1) + F(n-2), where F(0) = 0 and F(1) = 1
+        - `F(n) = F(n-1) + F(n-2), where F(0) = 0 and F(1) = 1`
         - comoutung the Fibo seq for large numbers can be computationally expensive
         - We can parallelize the task braking it down into smaller subproblems - with the help of the ForkJoin
-        
+
+    - Matrix Multiplication Task
+        - Matrix Multiplication (A x B = C)
+            - `A` is `m` x `n`
+            - `B` is `n` x `p`
+            - result `C` = `m` x `p`
+                - each element `c[i][j]` = dot product of row i in `A` and column j in `B`
+        - we will be using ForkJoin Framework to mulitply two matrices
+        - using the block(quadrant) method [https://en.wikipedia.org/wiki/Matrix_multiplication_algorithm](https://en.wikipedia.org/wiki/Matrix_multiplication_algorithm)
+
+        - split `A`, `B` and `C` into 4 equal-sized submatrices
+        - perform 8 sub matix multiplications (forked)
+        - sum results into `C`
+
+    - lets assume each matix is n x n (square, power of 2)
+        - here's how they're split
+
+```
+Matrix A:              Matrix B:               Result C:
++------+-------+       +------+-------+       +------+-------+
+| A11  | A12   |       | B11  | B12   |       | C11  | C12   |
++------+-------+       +------+-------+       +------+-------+
+| A21  | A22   |       | B21  | B22   |       | C21  | C22   |
++------+-------+       +------+-------+       +------+-------+
+
+```
+
+- the math is 
+
+```
+C11 = A11*B11 + A12*B21
+C12 = A11*B12 + A12*B22
+C21 = A21*B11 + A22*B21
+C22 = A21*B12 + A22*B22
+
+```
+
+- we use a temp matrix `T` to store the second part(`A12*B21`)
+- then add to `C`
+
+- What is the base case? (`MatrixMultiplyBase`)
+    - matrix block is small enough `(<= threshold)`
+        - then we use normal loop multiplication
+- What is the recursive case? (`MatrixMultiplyTask`)
+    - split into quadrants
+    - fork 8 multiplications
+    - then fork 4 additions
+
+
+- Steps
+    - 1 : `SubMatix`
+    - 2 : `MatrixMultiplyBase` extends  `RecursiveAction`
+    - 3 : `MatrixMultiplyTask` extends `RecusrsiveAction`
+    - 4 : `MatrixAddTask` extends `RecursiveAction`   :: Task to add two submatrices element-wise

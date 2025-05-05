@@ -201,11 +201,11 @@ public class App {
 - `flip`
     - Optional if you're using .array(), but required if using .get() or other buffer read ops. 
 
-### Exercise 1: Modify the code to write data to a file using NIO.
+#### Exercise 1: Modify the code to write data to a file using NIO.
 - Solution
     - [./nio/Ex1.java](./nio/Ex1.java)
 
-### Exercise 2 (Advanced): Implement a simple file copier program using NIO. The program should copy the contents of one file to another.
+#### Exercise 2 (Advanced): Implement a simple file copier program using NIO. The program should copy the contents of one file to another.
 - Solution
     - [./nio/Ex2.java](./nio/Ex2.java)
 
@@ -214,7 +214,15 @@ public class App {
 ## 3. Reflection and Annotations
 - Reflection: introspecting and manipulating code behaviours at runtime
 - Annotations: metadata attached to program elements
+#### Exercise 1: Create a custom annotation @LogExecutionTime to log the execution time of a method.
+- Solution
+    - [./reflec_anno/Ex1.java](./reflec_anno/Ex1.java)
+#### Exercise 2 (Advanced): Implement a class loader that can load classes from a custom directory at runtime using reflection.
+- Solution
+    - [./reflec_anno/Ex2.java](./reflec_anno/Ex2.java)
 
+
+## 4. Distributed Systems & Big Data (e.g., Apache Spark)
 
 
 

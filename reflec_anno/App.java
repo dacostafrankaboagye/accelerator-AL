@@ -3,6 +3,7 @@ package reflec_anno;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class App {
 
@@ -31,6 +32,18 @@ public class App {
         field2.set(instance, "Dell XP");
 
         System.out.println( instance.toString());
+
+        System.out.println(".....");
+        // methods
+        Method[] methods = clazz.getDeclaredMethods();
+        for (Method method : methods) {
+            // System.out.println(method.getName());
+        }
+
+        Method method = clazz.getDeclaredMethod("getMacAddress");
+        method.setAccessible(true);
+        System.out.println(method.invoke(instance));  // invoking it
+        System.out.println(method.getReturnType());
 
     }
 }

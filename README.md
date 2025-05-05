@@ -199,4 +199,9 @@ public class App {
     - Optional if you're using .array(), but required if using .get() or other buffer read ops. 
 
 ### Exercise 1: Modify the code to write data to a file using NIO.
-- [./nio/Ex1.java](./nio/Ex1.java)
+- Solution
+    - [./nio/Ex1.java](./nio/Ex1.java)
+
+### Exercise 2 (Advanced): Implement a simple file copier program using NIO. The program should copy the contents of one file to another.
+- Solution
+    - [./nio/Ex2.java](./nio/Ex2.java)

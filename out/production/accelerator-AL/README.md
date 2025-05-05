@@ -196,7 +196,4 @@ public class App {
 - `FileChannel`
     - Used instead of InputStream for more efficient I/O.
 - `flip`
-    - Optional if you're using .array(), but required if using .get() or other buffer read ops. 
-
-### Exercise 1: Modify the code to write data to a file using NIO.
-- [./nio/Ex1.java](./nio/Ex1.java)
+    - Optional if you're using .array(), but required if using .get() or other buffer read ops.

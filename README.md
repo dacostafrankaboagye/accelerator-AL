@@ -212,3 +212,46 @@ public class App {
 ---
 
 ## 3. Reflection and Annotations
+- Reflection: introspecting and manipulating code behaviours at runtime
+- Annotations: metadata attached to program elements
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

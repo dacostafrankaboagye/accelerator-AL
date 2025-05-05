@@ -8,6 +8,8 @@ D. Distributed Systems & Big Data (e.g., Apache Spark)
 
 E. Java Memory Model (JMM)
 
+---
+
 ## 1. Fork/Join Framework
 
     The Fork/Join Framework in Java is a powerful tool for parallel processing of 
@@ -94,6 +96,7 @@ C22 = A21*B12 + A22*B22
     - 4 : `MatrixAddTask` extends `RecursiveAction`   :: Task to add two submatrices element-wise
 
 
+---
 
 ## 2. Concurrency Essentials: Java NIO (Non-Blocking I/O)
 - Key Concepts
@@ -199,4 +202,56 @@ public class App {
     - Optional if you're using .array(), but required if using .get() or other buffer read ops. 
 
 ### Exercise 1: Modify the code to write data to a file using NIO.
-- [./nio/Ex1.java](./nio/Ex1.java)
+- Solution
+    - [./nio/Ex1.java](./nio/Ex1.java)
+
+### Exercise 2 (Advanced): Implement a simple file copier program using NIO. The program should copy the contents of one file to another.
+- Solution
+    - [./nio/Ex2.java](./nio/Ex2.java)
+
+---
+
+## 3. Reflection and Annotations
+- Reflection: introspecting and manipulating code behaviours at runtime
+- Annotations: metadata attached to program elements
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

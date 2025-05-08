@@ -19,7 +19,10 @@
 
 
 - [Week 3](./wk-3/README.md)
+    - Modern Java & Cloud-Native Development
 
 - [Week 4](./wk-4/README.md)
+    - Build Automation, Delivery, and Performance Optimization
 
 - [Week 5](./wk-5/README.md)
+    - Cloud, Big Data, Security, and Machine Learning (Week 5 Topics)

@@ -223,8 +223,9 @@ public class App {
 
 
 ## 4. Distributed Systems & Big Data (e.g., Apache Spark)
+![Component](./distri_sys_big_data/images/spark_components.png)
 
-
+- [./distri_sys_big_data/README.md](./distri_sys_big_data/README.md)
 
 
 

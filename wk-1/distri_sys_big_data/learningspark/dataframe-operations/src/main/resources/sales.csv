@@ -1,0 +1,9 @@
+id,product,category,quantity,price
+1,Product A,Electronics,100,499.99
+2,Product B,Electronics,50,599.99
+3,Product C,Clothing,200,29.99
+4,Product D,Clothing,150,39.99
+5,Product E,Home,75,199.99
+6,Product F,Home,100,299.99
+7,Product G,Electronics,30,699.99
+8,Product H,Clothing,80,49.99

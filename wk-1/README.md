@@ -226,6 +226,7 @@ public class App {
 ![Component](./distri_sys_big_data/images/spark_components.png)
 
 - [./distri_sys_big_data/README.md](./distri_sys_big_data/learningspark/README.md)
+- [./distri_sys_big_data/learningspark/APP_README.md](./distri_sys_big_data/learningspark/APP_README.md)
 
 
 

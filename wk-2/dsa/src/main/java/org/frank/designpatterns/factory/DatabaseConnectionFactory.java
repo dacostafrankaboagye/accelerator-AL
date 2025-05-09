@@ -27,14 +27,11 @@ public class DatabaseConnectionFactory {
      */
     public DatabaseConnection createConnection(DatabaseType type, String host, int port, 
                                               String database, String username, String password) {
-        switch (type) {
-            case MYSQL:
-                return new MySQLConnection(host, port, database, username, password);
-            case POSTGRESQL:
-                return new PostgreSQLConnection(host, port, database, username, password);
-            default:
-                throw new IllegalArgumentException("Unsupported database type: " + type);
-        }
+        return switch (type) {
+            case MYSQL -> new MySQLConnection(host, port, database, username, password);
+            case POSTGRESQL -> new PostgreSQLConnection(host, port, database, username, password);
+            default -> throw new IllegalArgumentException("Unsupported database type: " + type);
+        };
     }
     
     /**
@@ -56,15 +53,12 @@ public class DatabaseConnectionFactory {
         }
         
         String type = typeStr.toLowerCase();
-        
-        switch (type) {
-            case "mysql":
-                return new MySQLConnection(host, port, database, username, password);
-            case "postgresql":
-                return new PostgreSQLConnection(host, port, database, username, password);
-            default:
-                throw new IllegalArgumentException("Unsupported database type: " + typeStr);
-        }
+
+        return switch (type) {
+            case "mysql" -> new MySQLConnection(host, port, database, username, password);
+            case "postgresql" -> new PostgreSQLConnection(host, port, database, username, password);
+            default -> throw new IllegalArgumentException("Unsupported database type: " + typeStr);
+        };
     }
     
     /**

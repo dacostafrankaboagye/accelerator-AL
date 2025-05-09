@@ -41,7 +41,6 @@ build/
 /src/main/java/org/frank/designpatterns/template/
 /src/main/java/org/frank/designpatterns/proxy/
 /src/main/java/org/frank/designpatterns/observer/
-/src/main/java/org/frank/designpatterns/factory/
 /src/main/java/org/frank/designpatterns/facade/
 /src/main/java/org/frank/designpatterns/decorator/
 /src/main/java/org/frank/designpatterns/builder/

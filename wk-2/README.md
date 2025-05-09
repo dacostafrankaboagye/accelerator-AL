@@ -1,3 +1,6 @@
+## Solution
+![./dsa/README.md](./dsa/README.md)
+
 # Design Patterns
 - Creational Patterns:
     - Singleton Pattern:

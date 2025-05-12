@@ -36,12 +36,4 @@ build/
 .vscode/
 
 ### Mac OS ###
-.DS_Store/src/main/java/org/frank/designpatterns/strategy/
-/src/main/java/org/frank/designpatterns/strategy/
-/src/main/java/org/frank/designpatterns/template/
-/src/main/java/org/frank/designpatterns/proxy/
-/src/main/java/org/frank/designpatterns/observer/
-/src/main/java/org/frank/designpatterns/facade/
-/src/main/java/org/frank/designpatterns/decorator/
-/src/main/java/org/frank/designpatterns/adapter/
-!/src/main/java/org/frank/designpatterns/singleton/
+.DS_Store

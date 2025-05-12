@@ -9,6 +9,18 @@ This repository contains implementations of various design patterns in Java. Eac
   - [Factory Pattern](#factory-pattern)
   - [Builder Pattern](#builder-pattern)
 
+- [Structural Patterns](#structural-patterns)
+  - [Adapter Pattern](#adapter-pattern)
+  - [Decorator Pattern](#decorator-pattern)
+  - [Facade Pattern](#facade-pattern)
+  - [Proxy Pattern](#proxy-pattern)
+
+- [Behavioral Patterns](#behavioral-patterns)
+  - [Observer Pattern](#observer-pattern)
+  - [Strategy Pattern](#strategy-pattern)
+  - [Template Method Pattern](#template-method-pattern)
+
+
 ## Creational Patterns
 
 Creational patterns deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.
@@ -248,16 +260,213 @@ SearchQuery query3 = new SearchQuery.SearchQueryBuilder()
         .build();
 ```
 
-## Running the Examples
+## Structural Patterns
 
-Each pattern has example classes that demonstrate its usage. You can run these examples to see the patterns in action.
+Structural patterns deal with the composition of classes and objects to form larger structures and provide new functionality.
 
-For example, to run the Logger singleton example:
+### Adapter Pattern
 
+The Adapter pattern allows incompatible interfaces to work together. It acts as a bridge between two incompatible interfaces by wrapping an instance of one class into an adapter class that presents the interface expected by clients.
+
+#### Implementations:
+
+1. **Payment Processing Adapter**
+  - Adapts a legacy payment processing system to work with a modern payment gateway API
+  - Classes: `LegacyPaymentProcessor`, `ModernPaymentGateway`, `PaymentProcessorAdapter`
+  - Example: `PaymentAdapterExample`
+
+2. **Data Source Adapter**
+  - Makes an incompatible CSV data source accessible through a common interface
+  - Classes: `CSVDataSource`, `DataSource`, `CSVDataSourceAdapter`
+  - Example: `DataSourceAdapterExample`
+
+### Decorator Pattern
+
+The Decorator pattern attaches additional responsibilities to objects dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
+
+#### Implementations:
+
+1. **Shape Decorators**
+  - Adds visual enhancements to shape objects
+  - Base: `Shape` interface with `Circle` and `Rectangle` implementations
+  - Decorators: `BorderDecorator`, `ColorDecorator`, `TransparencyDecorator`
+  - Example: `ShapeDecoratorExample`
+
+2. **Message Decorators**
+  - Adds processing capabilities to messages before sending
+  - Base: `Message` interface with `TextMessage` implementation
+  - Decorators: `EncryptionDecorator`, `CompressionDecorator`
+  - Example: `MessageDecoratorExample`
+
+### Facade Pattern
+
+The Facade pattern provides a simplified interface to a complex subsystem. It doesn't hide the subsystem but makes it easier to use by providing a higher-level interface.
+
+#### Implementations:
+
+1. **Shopping Cart Facade**
+  - Simplifies the process of adding items, calculating discounts, and checkout
+  - Facade: `ShoppingCartFacade`
+  - Subsystem: `Product`, `Inventory`, `Discount`, `Order`, `Payment`, `ShoppingCart`
+  - Example: `ShoppingCartFacadeExample`
+
+2. **Email System Facade**
+  - Hides the complexity of composing, sending, and managing email messages
+  - Facade: `EmailFacade`
+  - Subsystem: `EmailComposer`, `EmailSender`, `EmailLogger`, `EmailTemplate`, `EmailValidator`
+  - Example: `EmailFacadeExample`
+
+### Proxy Pattern
+
+The Proxy pattern provides a surrogate or placeholder for another object to control access to it. It can be used for lazy loading, access control, logging, etc.
+
+#### Implementations:
+
+1. **Remote Service Proxy**
+  - Handles caching responses and managing network connections
+  - Interface: `RemoteService`
+  - Implementation: `RemoteServiceImpl`
+  - Proxy: `RemoteServiceProxy`
+  - Example: `RemoteServiceProxyExample`
+
+2. **File Download Proxy**
+  - Adds authorization checks and progress reporting before allowing downloads
+  - Interface: `FileDownloader`
+  - Implementation: `FileDownloaderImpl`
+  - Proxy: `FileDownloaderProxy`
+  - Example: `FileDownloaderProxyExample`
+
+## Behavioral Patterns
+
+Behavioral patterns are concerned with algorithms and the assignment of responsibilities between objects.
+
+### Observer Pattern
+
+The Observer pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
+#### Example 1: Weather Station
+
+In this example, a `WeatherStation` acts as the subject, and observers like `CurrentConditionsDisplay` update when weather data changes.
+
+```java
+// Create the weather station (subject)
+WeatherStation weatherStation = new WeatherStation();
+
+// Create and register the display (observer)
+CurrentConditionsDisplay currentDisplay = new CurrentConditionsDisplay(weatherStation);
+
+// Change the weather data
+weatherStation.setMeasurements(80, 65, 30.4f);
 ```
-java org.frank.designpatterns.singleton.LoggerExample
+
+#### Example 2: Stock Price Monitoring
+
+This example implements a stock price monitoring system where users can subscribe to specific stocks and receive updates when prices change.
+
+```java
+// Create the stock subject
+StockSubject stockMarket = new StockSubject();
+
+// Add some stocks with initial prices
+stockMarket.addStock("AAPL", 150.25);
+stockMarket.addStock("GOOGL", 2750.80);
+
+// Create a stock display (observer)
+StockDisplay userDisplay = new StockDisplay(stockMarket);
+
+// Subscribe to specific stocks
+userDisplay.subscribeToStock("AAPL");
+
+// Update a stock price (will notify observers)
+stockMarket.updateStockPrice("AAPL", 152.75);
+```
+
+### Strategy Pattern
+
+The Strategy pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. It lets the algorithm vary independently from clients that use it.
+
+#### Example 1: Sorting Application
+
+This example demonstrates a sorting application that allows users to choose between different sorting algorithms (bubble sort, selection sort) at runtime.
+
+```java
+// Create sorting strategies
+SortingStrategy bubbleSort = new BubbleSortStrategy();
+SortingStrategy selectionSort = new SelectionSortStrategy();
+
+// Create context with initial strategy
+SortingContext context = new SortingContext(bubbleSort);
+
+// Sample array to sort
+int[] array = {64, 34, 25, 12, 22, 11, 90};
+
+// Sort using bubble sort
+int[] sortedArray = context.executeSort(array);
+System.out.println("Sorted with " + context.getStrategyName());
+
+// Change strategy and sort again
+context.setStrategy(selectionSort);
+sortedArray = context.executeSort(array);
+System.out.println("Sorted with " + context.getStrategyName());
+```
+
+#### Example 2: Compression Library
+
+This example implements a compression library with different compression strategies (ZIP, GZIP) that can be selected based on user preferences or file type.
+
+```java
+// Create compression strategies
+CompressionStrategy zipStrategy = new ZipStrategy();
+CompressionStrategy gzipStrategy = new GzipStrategy();
+
+// Create context with initial strategy
+CompressionContext context = new CompressionContext(zipStrategy);
+
+// Compress a file using ZIP
+File sourceFile = new File("example.txt");
+File compressedFile = context.compress(sourceFile, "compressed");
+
+// Change strategy to GZIP and compress again
+context.setStrategy(gzipStrategy);
+compressedFile = context.compress(sourceFile, "compressed");
+```
+
+### Template Method Pattern
+
+The Template Method pattern defines the skeleton of an algorithm in a method, deferring some steps to subclasses. It lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
+
+#### Example 1: Order Processing
+
+This example implements an order processing system with a template method. Subclasses handle specific order types (domestic, international) by overriding certain steps in the template.
+
+```java
+// Create order processors
+OrderProcessor domesticProcessor = new DomesticOrderProcessor();
+OrderProcessor internationalProcessor = new InternationalOrderProcessor();
+
+// Process a domestic order
+boolean domesticResult = domesticProcessor.processOrder("DOM12345");
+
+// Process an international order
+boolean internationalResult = internationalProcessor.processOrder("INT67890");
+```
+
+#### Example 2: Data Validation Framework
+
+This example implements a data validation framework with a template method pattern. Subclasses implement specific validation rules for different data types (email address, phone number) within the defined template.
+
+```java
+// Create validators
+DataValidator emailValidator = new EmailValidator();
+DataValidator phoneValidator = new PhoneNumberValidator();
+
+// Validate an email address
+boolean isValidEmail = emailValidator.validate("user@example.com");
+
+// Validate a phone number
+boolean isValidPhone = phoneValidator.validate("+1234567890");
 ```
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+IT'S OPEN - that's it !!

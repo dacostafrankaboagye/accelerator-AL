@@ -99,7 +99,8 @@ public class ShoppingCartFacadeExample {
         System.out.println("\nExample 6: Checking inventory after all operations");
         // Print the inventory status
         facade.printInventoryStatus();
-        
+
+        System.out.println("\nAwesome right?? ");
         System.out.println("\nFacade Pattern Benefits:");
         System.out.println("1. Simplifies a complex subsystem by providing a unified interface");
         System.out.println("2. Decouples the client from the subsystem components");
@@ -113,7 +114,6 @@ public class ShoppingCartFacadeExample {
      * @param inventory The inventory to initialize
      */
     private static void initializeInventory(Inventory inventory) {
-        // Add some products to the inventory
         Product laptop = new Product("P001", "Laptop", 999.99, "Electronics", true);
         Product smartphone = new Product("P002", "Smartphone", 699.99, "Electronics", true);
         Product headphones = new Product("P003", "Headphones", 149.99, "Electronics", true);

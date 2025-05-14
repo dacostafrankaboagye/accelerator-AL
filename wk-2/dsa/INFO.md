@@ -16,7 +16,7 @@
     - Adapter Pattern:
         - Exercise 1: Create an adapter that allows you to use a legacy payment processing library with a modern payment gateway API.
         - Exercise 2: Implement an adapter to make an incompatible datasource (e.g., CSV file) accessible through a common interface used by your application.
-    - Decorator Pattern:
+    - Decorator Pattern*:
         - Exercise 1: Design a decorator for a Shape interface that adds functionality like colored borders or transparency effects.
         - Exercise 2: Implement a decorator for text messages that adds encryption or compression before sending them.
     - Facade Pattern:

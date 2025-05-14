@@ -176,7 +176,7 @@ public class ShoppingCart {
         }
         
         System.out.println("Shopping Cart Contents:");
-        double total = 0.0;
+        double total = 0.0; // we start off with a total = 0.0
         
         for (Map.Entry<String, Integer> entry : items.entrySet()) {
             String productId = entry.getKey();

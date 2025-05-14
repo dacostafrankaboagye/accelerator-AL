@@ -144,7 +144,7 @@ public class Payment {
             return false;
         }
         
-        // Simulate processing time
+        // Simulate processing time - lol : maybe later I will try actual integration - but you get it
         try {
             Thread.sleep(500); // Simulate a delay
         } catch (InterruptedException e) {
@@ -181,14 +181,14 @@ public class Payment {
      */
     private boolean validateCreditCardDetails(String details) {
         // Simple validation for demonstration purposes
-        // In a real application, this would be much more comprehensive
+        // In a real application, this would be much more comprehensive I tell you
         if (details.length() < 15) {
             System.out.println("Invalid credit card number");
             return false;
         }
         
         // Check if the details contain a valid format (simplified)
-        if (!details.matches("\\d{13,19}")) {
+        if (!details.matches("\\d{13,19}")) {  // Ensures that the string has between 13 and 19 digits.
             System.out.println("Credit card number should contain only digits");
             return false;
         }
@@ -234,6 +234,6 @@ public class Payment {
      * @return A unique transaction ID
      */
     private String generateTransactionId() {
-        return "TXN-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+        return "TXN-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase(); // simple right??
     }
 }

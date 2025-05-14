@@ -27,6 +27,7 @@ public class CompressionDecorator extends MessageDecorator {
         super(decoratedMessage);
         this.compressionAlgorithm = compressionAlgorithm;
         this.compressionLevel = Math.max(1, Math.min(9, compressionLevel)); // Ensure level is between 1 and 9
+        super.setContent(compress(decoratedMessage.getContent()));
     }
     
     /**
@@ -68,10 +69,9 @@ public class CompressionDecorator extends MessageDecorator {
     
     @Override
     public int getSize() {
-        // Compressed content should be smaller than the original
-        // This is a rough estimation
-        double compressionRatio = getCompressionRatio();
-        return (int) (super.getSize() * compressionRatio);
+        // Return the size of the labeled compressed content
+        String labeledContent = "CompAlgo -=== " + compressionAlgorithm + " === " + super.getContent();
+        return labeledContent.length();
     }
     
     /**
@@ -81,28 +81,9 @@ public class CompressionDecorator extends MessageDecorator {
      * @return The compressed content
      */
     private String compress(String content) {
-        System.out.println("Compressing message with " + compressionAlgorithm + 
+        System.out.println("Compressing message with " + compressionAlgorithm +
                 " (level " + compressionLevel + ")");
-        
-        if ("GZIP".equalsIgnoreCase(compressionAlgorithm)) {
-            try {
-                ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-                try (GZIPOutputStream gzipStream = new GZIPOutputStream(byteStream)) {
-                    gzipStream.write(content.getBytes());
-                }
-                // Base64 encode the compressed data for text representation
-                return Base64.getEncoder().encodeToString(byteStream.toByteArray());
-            } catch (IOException e) {
-                System.err.println("Error compressing data: " + e.getMessage());
-                return content; // Return original content if compression fails
-            }
-        } else if ("RLE".equalsIgnoreCase(compressionAlgorithm)) {
-            // Simple Run-Length Encoding for demonstration
-            return runLengthEncode(content);
-        } else {
-            // Default to a simple character removal for demonstration
-            return removeSpaces(content);
-        }
+        return "CompAlgo -=== " + compressionAlgorithm + " === " + content;
     }
     
     /**
@@ -112,126 +93,14 @@ public class CompressionDecorator extends MessageDecorator {
      * @return The decompressed content
      */
     private String decompress(String compressedContent) {
-        System.out.println("Decompressing message with " + compressionAlgorithm);
-        
-        if ("GZIP".equalsIgnoreCase(compressionAlgorithm)) {
-            try {
-                byte[] compressedBytes = Base64.getDecoder().decode(compressedContent);
-                ByteArrayInputStream byteStream = new ByteArrayInputStream(compressedBytes);
-                try (GZIPInputStream gzipStream = new GZIPInputStream(byteStream)) {
-                    ByteArrayOutputStream resultStream = new ByteArrayOutputStream();
-                    byte[] buffer = new byte[1024];
-                    int length;
-                    while ((length = gzipStream.read(buffer)) > 0) {
-                        resultStream.write(buffer, 0, length);
-                    }
-                    return resultStream.toString();
-                }
-            } catch (Exception e) {
-                System.err.println("Error decompressing data: " + e.getMessage());
-                return compressedContent; // Return compressed content if decompression fails
-            }
-        } else if ("RLE".equalsIgnoreCase(compressionAlgorithm)) {
-            // Simple Run-Length Decoding for demonstration
-            return runLengthDecode(compressedContent);
+        String prefix = "CompAlgo -=== " + compressionAlgorithm + " === ";
+
+        if (compressedContent.startsWith(prefix)) {
+            return compressedContent.substring(prefix.length());
         } else {
-            // No decompression needed for space removal
+            System.err.println("Invalid compression format. Skipping decompression.");
             return compressedContent;
         }
-    }
-    
-    /**
-     * Get the compression ratio based on the algorithm and level.
-     * 
-     * @return The compression ratio (compressed size / original size)
-     */
-    private double getCompressionRatio() {
-        // This is a simple estimation of the compression ratio
-        if ("GZIP".equalsIgnoreCase(compressionAlgorithm)) {
-            // Higher compression level means better compression (smaller ratio)
-            return 0.5 - (compressionLevel - 1) * 0.05;
-        } else if ("RLE".equalsIgnoreCase(compressionAlgorithm)) {
-            return 0.7; // Assume RLE achieves about 30% compression
-        } else {
-            return 0.9; // Assume space removal achieves about 10% compression
-        }
-    }
-    
-    /**
-     * Simple Run-Length Encoding implementation.
-     * 
-     * @param text The text to encode
-     * @return The encoded text
-     */
-    private String runLengthEncode(String text) {
-        if (text == null || text.isEmpty()) {
-            return text;
-        }
-        
-        StringBuilder result = new StringBuilder();
-        char currentChar = text.charAt(0);
-        int count = 1;
-        
-        for (int i = 1; i < text.length(); i++) {
-            if (text.charAt(i) == currentChar) {
-                count++;
-            } else {
-                result.append(count).append(currentChar);
-                currentChar = text.charAt(i);
-                count = 1;
-            }
-        }
-        
-        result.append(count).append(currentChar);
-        return result.toString();
-    }
-    
-    /**
-     * Simple Run-Length Decoding implementation.
-     * 
-     * @param text The text to decode
-     * @return The decoded text
-     */
-    private String runLengthDecode(String text) {
-        if (text == null || text.isEmpty()) {
-            return text;
-        }
-        
-        StringBuilder result = new StringBuilder();
-        int i = 0;
-        
-        while (i < text.length()) {
-            // Find the count (one or more digits)
-            int countEnd = i;
-            while (countEnd < text.length() && Character.isDigit(text.charAt(countEnd))) {
-                countEnd++;
-            }
-            
-            if (countEnd == text.length()) {
-                break; // Malformed RLE string
-            }
-            
-            int count = Integer.parseInt(text.substring(i, countEnd));
-            char c = text.charAt(countEnd);
-            
-            for (int j = 0; j < count; j++) {
-                result.append(c);
-            }
-            
-            i = countEnd + 1;
-        }
-        
-        return result.toString();
-    }
-    
-    /**
-     * Remove spaces from the text as a simple compression method.
-     * 
-     * @param text The text to compress
-     * @return The compressed text
-     */
-    private String removeSpaces(String text) {
-        return text.replaceAll("\\s+", "");
     }
     
     /**

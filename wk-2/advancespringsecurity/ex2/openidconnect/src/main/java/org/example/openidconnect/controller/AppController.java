@@ -1,5 +1,7 @@
 package org.example.openidconnect.controller;
 
+import java.util.Map;
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
@@ -8,8 +10,6 @@ import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RestController
 public class AppController {
@@ -52,28 +52,6 @@ public class AppController {
         return sb.toString();
 
     }
-
-    /*
-{
-  "at_hash": "fkF_N3nVgPHcQdqUiZGFYg",
-  "sub": "102257476467084329917",
-  "email_verified": true,
-  "iss": "https://accounts.google.com",
-  "given_name": "frank",
-  "nonce": "YKhRYEfTrP7gyjKxPPDX1dcHiCbdWS02TQAwJhDW7mM",
-  "picture": "https://lh3.googleusercontent.com/a/ACg8ocJe9ZWt2M3I7mfbffmw_s5TtFiJTJ5t1X1txbhHGuOYhYw39-4=s96-c",
-  "aud": [
-    "283894779173-af9l6d7m949b3fh0nveb8o1hcbpsam5r.apps.googleusercontent.com"
-  ],
-  "azp": "283894779173-af9l6d7m949b3fh0nveb8o1hcbpsam5r.apps.googleusercontent.com",
-  "name": "frank kwabena-aboagye",
-  "exp": "2025-05-27T20:35:00Z",
-  "family_name": "kwabena-aboagye",
-  "iat": "2025-05-27T19:35:00Z",
-  "email": "kwabenaaboagyefrank@gmail.com"
-}
-
-    */
 
     @GetMapping  // the default - as homepage
     public Map<String, Object> home(@AuthenticationPrincipal OAuth2User oauth2User) {

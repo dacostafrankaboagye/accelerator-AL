@@ -17,7 +17,7 @@ associated with the access token.
 - You will leverage Spring Security's OIDC support to access the UserInfo 
 Endpoint and retrieve user details like name, email, etc
 - Solution
-    - [./ex2/README.md](./ex2/)
+    - [./ex2/README.md](./ex2/openidconnect/src/main/java/org/example/openidconnect/OpenidconnectApplication.java)
 
 
 ## Exercise #3 (Optional): Custom Authorization Server with Spring Security OAuth2

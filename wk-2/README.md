@@ -1,5 +1,8 @@
 ## Solution
 - [./dsa/README.md](./dsa/README.md)
+- [./testingframeworks/README.md](./testingframeworks/README.md) {to be completed...}
+- []()
+
 
 # Design Patterns
 - Creational Patterns:
@@ -67,3 +70,9 @@
     - State
     - Visitor
 
+
+# Testing Frameworks
+- Mockito & TestNG
+
+
+# Advanced Spring Security

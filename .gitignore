@@ -44,4 +44,9 @@ build/
 target/
 
 my-test/
+./my-test/
+/my-test
+
+./secrets
+./secrets/**
 

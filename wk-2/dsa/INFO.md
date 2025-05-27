@@ -22,7 +22,7 @@
     - Facade Pattern:
         - Exercise 1: Create a facade for a shopping cart system that simplifies adding items, calculating discounts, and initiating checkout.
         - Exercise 2: Design a facade for a complex email sending system that hides the underlying details of composing, sending,and managing email messages.
-    - Proxy Pattern:
+    - Proxy Pattern*:
         - Exercise 1: Implement a proxy for a remote service that handles caching responses and managing network connections.
         - Exercise 2: Create a proxy for a file download process that adds authorization checks and progress reporting before allowing the actual download
 

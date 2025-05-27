@@ -50,3 +50,4 @@ my-test/
 ./secrets
 ./secrets/**
 
+wk-2/advancespringsecurity/ex2/openidconnect/secrets

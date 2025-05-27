@@ -17,7 +17,7 @@ associated with the access token.
 - You will leverage Spring Security's OIDC support to access the UserInfo 
 Endpoint and retrieve user details like name, email, etc
 - Solution
-    - [./ex2/README.md](./ex1/README.md)
+    - [./ex2/README.md](./ex2/README.md)
 
 
 ## Exercise #3 (Optional): Custom Authorization Server with Spring Security OAuth2
@@ -26,4 +26,4 @@ custom authorization server using Spring Security OAuth2.
 - You will configure user registration, login functionality, and access token 
 issuance within your Spring Security application.
 - Solution
-    - [./ex2/README.md](./ex1/README.md)
+    - [./ex2/README.md](./ex2/README.md)

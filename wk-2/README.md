@@ -1,7 +1,7 @@
 ## Solution
 - [./dsa/README.md](./dsa/README.md)
-- [./testingframeworks/README.md](./testingframeworks/README.md) {to be completed...}
-- []()
+- [./testingframeworks/README.md](./testingframeworks/README.md) {missing files}
+- [./advancespringsecurity/README.md](./advancespringsecurity/README.md)
 
 
 # Design Patterns
@@ -76,3 +76,12 @@
 
 
 # Advanced Spring Security
+- Advanced topics in Spring Security, specifically OAuth2 and OpenID Connect (OIDC). OAuth2 is an authorization framework that enables secure authorization by third-party applications. OIDC extends OAuth2 to provide a simple identity layer on top of it. By the end of this lab, you will be able to implement secure authentication flows using OAuth2 and OIDC in your Spring Security applications.
+- Prerequisites
+    - Basic understanding of Spring Security concepts (authentication, authorization)
+    - Familiarity with HTTP requests and responses
+
+# Spring Cloud Advanced Topics (API Gateway, Service Discovery)
+
+
+# Project: Develop a Secure and Highly Scalable Microservices Application using Spring Cloud

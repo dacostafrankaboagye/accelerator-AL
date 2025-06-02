@@ -26,4 +26,5 @@ custom authorization server using Spring Security OAuth2.
 - You will configure user registration, login functionality, and access token 
 issuance within your Spring Security application.
 - Solution
-    - [./ex2/README.md](./ex2/README.md)
+    - [to be completed after madatory lab]
+

@@ -82,6 +82,7 @@
     - Familiarity with HTTP requests and responses
 
 # Spring Cloud Advanced Topics (API Gateway, Service Discovery)
+![./springcloud/README.md](./springcloud/README.md)
 
 
 # Project: Develop a Secure and Highly Scalable Microservices Application using Spring Cloud

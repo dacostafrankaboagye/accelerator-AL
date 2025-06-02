@@ -2,6 +2,8 @@
 - [./dsa/README.md](./dsa/README.md)
 - [./testingframeworks/README.md](./testingframeworks/README.md) {missing files}
 - [./advancespringsecurity/README.md](./advancespringsecurity/README.md)
+- [./springcloud/README.md](./springcloud/README.md)
+- [./project/README.md](./project/README.md){in progress}
 
 
 # Design Patterns
@@ -86,3 +88,4 @@
 
 
 # Project: Develop a Secure and Highly Scalable Microservices Application using Spring Cloud
+![./project/README.md)](./project/README.md)

@@ -67,6 +67,10 @@ public final class Product {
 [./src/main/java/org/example/ElectronicsProduct.java](./src/main/java/org/example/ElectronicsProduct.java)
 [./src/main/java/org/example/SealedProduct.java](./src/main/java/org/example/SealedProduct.java)
 
+```java
+Product phone = new ElectronicsProduct(...);
+Product shirt = new ClothingProduct(...);
+```
 - so what is happening here? 
   - Only ElectronicsProduct and ClothingProduct are allowed because of the permits clause.
 - so something like a FoodProduct would not work

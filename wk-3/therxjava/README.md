@@ -11,6 +11,7 @@
 | **Jetty + Atmosphere**    | Web server w/ push  | Yes              | JS frontend        | Real-time data push over WebSockets |
 
 - Core Principles
+
 | Term                      | Definition                                                                |
 | ------------------------- | ------------------------------------------------------------------------- |
 | **Observable**            | A stream that emits data or events over time.                             |

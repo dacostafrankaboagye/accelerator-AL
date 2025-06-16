@@ -12,5 +12,28 @@
 - solution
     - [./unleashingthePowerofJava17/README.md](./unleashingthePowerofJava17/README.md)
 
-### Mastering Reactive Programming with RxJava
-- [https://github.com/ReactiveX/RxJava](https://github.com/ReactiveX/RxJava)
+### Mastering Reactive Programming with 
+- Scope
+1. Grasp the core concepts of reactive programming and its advantages for handling 
+asynchronous and event-driven data streams.
+2. Implement reactive patterns effectively using RxJava operators for manipulating 
+and transforming data streams.
+3. Apply RxJava to handle real-world scenarios involving asynchronous operations 
+(e.g., API calls, user interactions).
+- Exercises: Scenario 2: Stock Price Monitoring
+    - Scope: Develop a real-time stock price monitoring application that retrieves data from a financial API (e.g., Alpha Vantage) and displays it dynamically.
+- Exercise 2.1: Understanding Reactive Programming
+    - Research the core principles of reactive programming (Observables, Subscribers,Schedulers).
+    - Compare reactive programming to traditional imperative approaches.
+- Exercise 2.2: Setting Up RxJava
+    - Integrate RxJava library into your project.
+    - Explore basic operators like map, filter, and subscribe using sample data streams.
+- Exercise 2.3: Building a Reactive Stock Price Dashboard
+    - Connect to a financial API and retrieve real-time stock price data (consider using an RxJava library for API calls).
+    - Utilize RxJava operators to filter and process the data stream for relevant information (e.g., specific stock symbols).
+    - Update a UI (consider JavaFX or a web framework) dynamically based on the processed data stream.
+
+- Solution
+    - [./therxjava/README.md](./therxjava/README.md)
+
+

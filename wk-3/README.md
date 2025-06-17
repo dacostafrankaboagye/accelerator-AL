@@ -36,4 +36,18 @@ and transforming data streams.
 - Solution
     - [./therxjava/README.md](./therxjava/README.md)
 
+### Exercises:
+-  E-commerce Order Processing
+    - Scope: Design a system for processing customer orders in an e-commerce application.
+        - Exercise 3.1: Lambda Power
+            - Refactor a code snippet for calculating order total using a lambda expression instead of an anonymous inner class.
+            - Explore using lambdas for filtering and transforming order items based on specific criteria (e.g., price, category).
+        - Exercise 3.2: Streamlining with Streams
+            - Utilize Java Streams API (e.g., filter, map, reduce) to process a list of customer orders.
+            - Calculate statistics like total order amount or number of orders per customer using Streams.
+            - Exercise 3.3: Functional Refactoring
+            - Identify a section of your existing Java code that could benefit from functional programming techniques.
+            - Refactor the code using lambdas and Streams to improve readability and maintainability.
+- Solution
+    - [./fnxprogramming/README.md](./fnxprogramming/README.md)
 

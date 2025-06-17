@@ -45,7 +45,7 @@ and transforming data streams.
         - Exercise 3.2: Streamlining with Streams
             - Utilize Java Streams API (e.g., filter, map, reduce) to process a list of customer orders.
             - Calculate statistics like total order amount or number of orders per customer using Streams.
-            - Exercise 3.3: Functional Refactoring
+        - Exercise 3.3: Functional Refactoring
             - Identify a section of your existing Java code that could benefit from functional programming techniques.
             - Refactor the code using lambdas and Streams to improve readability and maintainability.
 - Solution

@@ -38,3 +38,18 @@ dataset in parallel.
         - Concurrent Collections: Utilize concurrent collections like ConcurrentHashMap for thread-safe access to shared data structures.
 - Solution
     - [./MultithreadedApp/README.md](./MultithreadedApp/README.md)
+
+## Optimizing a Web Application
+- Scope: Analyze and improve the performance of a web application (consider a sample web application or a section of your existing project).
+- Exercise 4.1: Profiling with JProfiler 
+    - If you're new to profiling tools, explore JProfiler and its features for identifying CPU hotspots, memory leaks and thread contention issues.
+- Exercise 4.2: Benchmarking with JMH
+    - Utilize the Java Microbenchmarking Harness (JMH) to establish a baseline performance metric for your web application.
+    - Introduce code changes (e.g., algorithm improvements, data structure selection) and measure their impact on performance using JMH benchmarks.
+- Exercise 4.3: Optimization Strategies
+    - Analyze profiling data and identify performance bottlenecks in your web application.
+    - Implement optimization strategies based on profiling results:
+        - Code optimization (e.g., reducing unnecessary object creation, optimizing loops)
+        - Memory management practices (e.g., avoiding memory leaks)
+        - Proper data structure selection (e.g., using efficient collections for specific use cases)
+- [./webapp/README.md](./webapp/README.md)

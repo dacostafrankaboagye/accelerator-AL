@@ -9,4 +9,18 @@
     - [./microservice-parent/README.md](./microservice-parent/README.md)
 
 ## Building Continuous Delivery Pipelines with Jenkins and Docker
-- [In progress]
+- Scope: Set up a CI/CD pipeline using Jenkins and Docker to automate 
+the build, test, and deployment process for a Spring Boot application.
+- Exercise 2.1: Introduction to Jenkins
+    - If you're new to Jenkins, set up a Jenkins server and explore its basic functionalities for creating jobs and managing builds.
+- Exercise 2.2: Building a Jenkins Pipeline
+    - Design a Jenkins pipeline for your Spring Boot application that includes stages for:
+        - Code checkout from a version control system (e.g., Git)
+        - Maven (or Gradle) build and unit testing
+        - Docker image building and pushing to a registry
+        - Deployment to a staging or production environment
+        (consider tools like Ansible or Chef for configuration management)
+- Exercise 2.3: Containerizing with Docker
+    - Create a Dockerfile for your Spring Boot application, specifying the base image, dependencies, and application startup command.
+- Solution
+    - [./CDPipelineswithJenkinsandDocker/portfolioapplication/README.md](./CDPipelineswithJenkinsandDocker/portfolioapplication/README.md)

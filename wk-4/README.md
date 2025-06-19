@@ -24,3 +24,17 @@ the build, test, and deployment process for a Spring Boot application.
     - Create a Dockerfile for your Spring Boot application, specifying the base image, dependencies, and application startup command.
 - Solution
     - [./CDPipelineswithJenkinsandDocker/portfolioapplication/README.md](./CDPipelineswithJenkinsandDocker/portfolioapplication/README.md)
+
+## Building a Multithreaded Application
+- Scope: Develop a multithreaded application that processes a large 
+dataset in parallel.
+- Exercise 3.1: Memory Management Fundamentals
+    - Research the garbage collection process in Java. How does garbage collection work, and what are common pitfalls to avoid (e.g., memory leaks)?
+- Exercise 3.2: Threading Basics
+    - Create a simple multithreaded application that performs tasks like downloading files or processing data concurrently using threads.
+- Exercise 3.3: Advanced Concurrency
+    - Explore advanced concurrency features in Java:
+        - Fork/Join Framework: Implement parallel processing of tasks using the fork/join framework for efficient utilization of multiple cores.
+        - Concurrent Collections: Utilize concurrent collections like ConcurrentHashMap for thread-safe access to shared data structures.
+- Solution
+    - [./MultithreadedApp/README.md](./MultithreadedApp/README.md)

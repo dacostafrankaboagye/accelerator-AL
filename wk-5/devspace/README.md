@@ -63,5 +63,90 @@ src/main/resources/static/     # Static assets (CSS, JS)
 - Use Spring events for notifications or analytics
 - Replace H2 with a production database (e.g., PostgreSQL) for deployment
 
+
+## To AWS
+- [./images/flow_aws.png](./images/flow_aws.png)
+
+#### Continous Integration Step
+
+   - the application
+   - dockerise it
+   -  ecr
+      - create a resigry
+   - buildspec.yml
+   - aws code build
+      - modify the service role (attach policies = container registry full access and power user)
+      - create env variables for the docke credentials in there
+
+```text
+The buildspec sets up Java and Maven.
+Logs in to Docker Hub (to pull base images) and ECR (to push your app image).
+Builds your Java app and Docker image.
+Pushes the image to ECR.
+Prepares a file for ECS to deploy the new image.
+```
+
+```mermaid
+flowchart TD
+    A[install phase] --> B[pre_build phase]
+    B --> C[build phase]
+    C --> D[post_build phase]
+    D --> E[artifacts]
+    B1[Login to Docker Hub] --> B
+    B2[Login to ECR] --> B
+    C1[Build Java App] --> C
+    C2[Build Docker Image] --> C
+    D1[Push to ECR] --> D
+    D2[Write imagedefinitions.json] --> D
+```
+
+
+- visit the registry, the image should be there
+
+
+#### Continuous Delivery & Continuous Deployment
+
+- create the ecs infrastructure
+   - tasks definition
+      - container details (you can use the registry repository name, just to be consistent, by default it will take the latest image, given the registry repository uri)
+      - expose 8080
+
+   - cluster -> service
+      - specify a name
+      - you realise that no task is running
+         - you can map task directly to the cluster (or)
+         - create a service and map the task to that particular service
+            - so create a service
+            - chooe launch type compute configuration (fargate)
+            - networking - create a new security Group (all traffic, all tcp, source: anywhere)
+
+   - run
+     - go to the cluster
+       - services
+          - task (bar)
+            - look for the running task 
+              -  get the public IP
+
+```
+<public_ip> : <the port>
+
+example:  http://3.236.43.190:8080
+```
+
+
+```mermaid
+flowchart TD
+    A[Push Docker image to ECR] --> B[Create ECS Task Definition]
+    B --> C[Create ECS Service]
+    C --> D[Service runs container from ECR image]
+    D --> E[Access app via Load Balancer or Public IP]
+
+```
+
+### App
+
+![./images/app.png](./images/app.png)
+
+
 ## License
 MIT 
